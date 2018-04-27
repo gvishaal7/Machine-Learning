@@ -1,3 +1,5 @@
+#the following application build a convolutional neural network for predicting the age using the social network data
+
 import tensorflow as tf
 import numpy as np
 from sklearn.metrics import confusion_matrix
