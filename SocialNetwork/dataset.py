@@ -1,9 +1,9 @@
+#support file to modify the input the images according the model standards
 import os
 import glob
 import numpy as np
 import cv2
 from sklearn.utils import shuffle
-
 
 cascPath = sys.argv[2]
 faceCascade = cv2.CascadeClassifier(cascPath)
@@ -13,7 +13,6 @@ def load_train(train_path, image_size, classes):
     labels = []
     ids = []
     cls = []
-
     print('Reading training images')
     for fld in classes:   # assuming data directory has a separate folder for each class, and that each folder is named after the class
         index = classes.index(fld)
@@ -39,7 +38,6 @@ def load_train(train_path, image_size, classes):
     labels = np.array(labels)
     ids = np.array(ids)
     cls = np.array(cls)
-
     return images, labels, ids, cls
 
 
@@ -56,13 +54,10 @@ def load_test(test_path, image_size,classes):
         img = cv2.resize(img, (image_size, image_size), cv2.INTER_LINEAR)
         X_test.append(img)
         X_test_id.append(flbase)
-
-    #print(X_test)
   ### because we're not creating a DataSet object for the test images, normalization happens here
     X_test = np.array(X_test, dtype=np.uint8)
     X_test = X_test.astype('float32')
     X_test = X_test / 255
-    
     return X_test, X_test_id
 
 
@@ -73,7 +68,6 @@ class DataSet(object):
     self._num_examples = images.shape[0]
     images = images.astype(np.float32)
     images = np.multiply(images, 1.0 / 255.0)
-
     self._images = images
     self._labels = labels
     self._ids = ids
