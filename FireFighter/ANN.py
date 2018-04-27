@@ -1,3 +1,5 @@
+#the following application builds an artificial neural network using keras and tensorflow
+
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 import numpy
