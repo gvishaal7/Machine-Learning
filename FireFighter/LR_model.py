@@ -1,3 +1,5 @@
+#the following application builds a linear model over the given dataset
+
 import pandas as pd
 import time
 from numpy import array
