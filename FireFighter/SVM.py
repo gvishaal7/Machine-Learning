@@ -1,3 +1,5 @@
+#this application builds a Support vector machine over the given dataset
+
 from sklearn import svm
 import pandas as pd
 from sklearn.metrics import accuracy_score
